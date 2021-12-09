@@ -80,6 +80,8 @@ function createCards() {
             document.querySelector('.cards').appendChild(newCard)
         })
     addDeleteListeners();
+    addReadListeners();
+    addUnReadListeners();
 }
 
 
@@ -92,4 +94,26 @@ function addDeleteListeners() {
             createCards();
         })
     });    
+}
+
+function addReadListeners() {
+    readBtns = document.querySelectorAll('.read-btn')
+    readBtns.forEach((btn) => {
+        btn.addEventListener('click', (btn) => {
+            let index = btn.target.id.substring(btn.target.id.length - 1);
+            library[index].read = 'Not Read'
+            createCards();
+        })
+    })
+}
+
+function addUnReadListeners() {
+    unReadBtns = document.querySelectorAll('.not-read-btn')
+    unReadBtns.forEach((btn) => {
+        btn.addEventListener('click', (btn) => {
+            let index = btn.target.id.substring(btn.target.id.length - 1);
+            library[index].read = 'Read'
+            createCards();
+        })
+    })
 }

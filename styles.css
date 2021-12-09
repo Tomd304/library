@@ -32,6 +32,7 @@ body {
     align-items: center;
     background-color: #C8F8FD;
     padding: 32px 80px;
+    padding-bottom: 50px;
 }
 
 
@@ -70,40 +71,47 @@ body {
     align-items: center;
 }
 
-.full-form {
-    padding: 30px;
-    background-color: white;
-    width: 300px;
+.full-screen form {
+    padding: 30px 10px;
+    background-color: #C8F8FD;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 40px;
     border-radius: 5px;
 }
 
 .full-form input {
-    padding: 5px 3px;
+    padding: 5px 20px;
     border-radius: 5px;
     border: 1px slategray solid;
+    width: 80%;
+    font-size: 40px;
+    background-color: #B3DEE3;
+    color: #303C3D;
 }
 
-form .close-btn {
+.card .close-btn {
     border: none;
     align-self: flex-end;
-    background-color: white ;
-    font-size: 18px;
+    background-color: #C8F8FD ;
+    color: #303C3D;
+    font-size: 28px;
+    font-weight: 900;
     padding: 0;
     cursor: pointer;
+    width: 100px;
 }
 
 .cards {
-    margin-top: 35px;
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
     justify-content: center;
     align-items: stretch;
-    height: 600px;
-    overflow-y: scroll;
+    height: 606px;
+    overflow: auto;
 }
 
 .card {
@@ -138,6 +146,9 @@ form .close-btn {
     cursor: pointer;
     border: none;
     border-radius: 4px;
+    background-color: #95B9BD;
+    color: #303C3D;
+    font-size: 40px;
 }
 
 .card .del-btn {
