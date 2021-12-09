@@ -5,10 +5,23 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <button id='new-book-btn'>New Book</button>
+        <div class='header'>
+            <h1>myLibrary</h1>
+        </div>
+        <div class='content'>
+            <button id='new-book-btn'>New Book</button>
+            
+            <div class='cards'>
+            </div>
+        </div>
+        <div class='footer'>
+            <h2>Tommy3Shot - GITHUB</h2>
+        </div>
+
+        <!--MODAL POP UP SCREEN-->
         <div class='full-screen' id='new-book-form'>
-            <form class ='full-form' action="" name="new-book">
-                <button class='close-btn'>x</button>
+            <form class ='full-form' name="new-book">
+                <button type='button' class='close-btn'>x</button>
                 <input type="text" placeholder="Title" id="title">
                 <input type="text" placeholder="Author" id="author">
                 <input type="text" placeholder="Pages" id="pages">
@@ -16,6 +29,8 @@
                 <button type="button" id='submitNewBook'>Submit</button>
             </form>
         </div>
+
+
     </body>
     <script src="scripts.js"></script>
 </html>

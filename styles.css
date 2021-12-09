@@ -3,17 +3,62 @@
     margin: 0;
     box-sizing: border-box;
 }
+
 body {
+    height: 100vh;
+    width: 100vw;    
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-direction: column;
+}    
+
+.header {
+    background-color: #303C3D;
+    color: #B3DEE3;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 80px;
+    width: 100%;
+    height: 72px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 32px;
+    align-items: center;
+    background-color: #C8F8FD;
+    padding: 32px 80px;
+}
+
+
+.footer {
+    background-color: #303C3D;
+    color: #B3DEE3;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    width: 100vw;
-}    
-
-button {
-    padding: 10px 20px;
+    padding: 0 80px;
+    width: 100%;
+    height: 72px;
 }
+
+#new-book-btn {
+    background-color: #303C3D;
+    color: #95B9BD;
+    font-weight: 900;
+    border-radius: 8px;
+    border: 0;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 18px 25px;
+    width: 180px;
+    font-style: ;
+}
+
 
 .full-screen {
     position: absolute;
@@ -48,4 +93,67 @@ form .close-btn {
     font-size: 18px;
     padding: 0;
     cursor: pointer;
+}
+
+.cards {
+    margin-top: 35px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    align-items: stretch;
+    height: 600px;
+    overflow-y: scroll;
+}
+
+.card {
+    text-align: center;
+    background-color: #B3DEE3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 40px;
+    align-items: stretch;
+    border-radius: 5px;
+    color: #303C3D;
+    font-weight: 900;
+    font-size: large;
+    padding: 50px;
+    border: #303C3D 1px solid;
+    font-size: 40px;
+    width: 500px;
+}
+
+.cardBtmHalf, .cardTopHalf {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+}
+.card button {
+    width: 80%;
+    padding: 15px 30px;
+    font-size: 30px;
+    margin-top: auto;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+}
+
+.card .del-btn {
+    background-color: #303C3D;
+    color: #95B9BD;
+    border-radius: 4px;
+    border: none
+}
+
+.card .read-btn {
+    background-color: #C8F8FD;
+    color: #637A7D
+
+}
+
+.card .not-read-btn {
+    color: #C8F8FD;
+    background-color: #637A7D
 }

@@ -23,6 +23,14 @@ newBookBtn.addEventListener("click", () => {
     newBookForm.style.display = 'flex'
 });
 
+closeFormBtn = document.querySelector('.close-btn')
+closeFormBtn.addEventListener('click', (btn) => {
+    newBookForm.style.display = 'none'
+    titleInput.value = ''
+    authorInput.value = ''
+    pagesInput.value = ''
+    readInput.value = ''
+})
 
 submitBookBtn = document.querySelector('#submitNewBook')
 submitBookBtn.addEventListener('click', () => {
@@ -32,8 +40,56 @@ submitBookBtn.addEventListener('click', () => {
     authorInput.value = ''
     pagesInput.value = ''
     readInput.value = ''
-    console.table(library)
+    createCards()
+    
 });
 
-newBook('Thursday Murder Club', 'Richard Osmond', 385, 'Yes')
-console.table(library)
+newBook('Thursday Murder Club', 'Richard Osmond', 385, 'Read')
+newBook('The Hobbit', 'JRR Tolkien', 560, 'Not Read')
+newBook('Sapiens', 'Yuval Noah Harari', 443, 'Not Read')
+createCards()
+
+
+function createCards() {
+    console.table(library )
+    document.querySelector('.cards').innerHTML = ''
+        library.forEach((book, i) => {
+            let newCard = document.createElement('div')
+            newCard.classList = 'card'
+            let topCardSection = document.createElement('div')
+            topCardSection.classList = 'cardTopHalf'    
+            let title = document.createElement('p')
+            title.textContent = `\"${book.title}\"`
+            let author = document.createElement('p')
+            author.textContent = book.author
+            let pages = document.createElement('p')
+            pages.textContent = book.pages + ' pages'
+            topCardSection.append(title, author, pages)
+            let btmCardSection = document.createElement('div')
+            btmCardSection.classList = 'cardBtmHalf'
+            let read = document.createElement('button')
+            read.textContent = book.read
+            read.classList = book.read == 'Read' ? 'read-btn' : 'not-read-btn'
+            read.id = 'read' + i
+            let del = document.createElement('button')
+            del.id = 'del' + i
+            del.textContent = 'Delete'
+            del.classList = 'del-btn'
+            btmCardSection.append(read, del)
+            newCard.append(topCardSection, btmCardSection)
+            document.querySelector('.cards').appendChild(newCard)
+        })
+    addDeleteListeners();
+}
+
+
+function addDeleteListeners() {
+    deleteBtns = document.querySelectorAll('.del-btn')
+    deleteBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            let index = btn.id.substring(btn.id.length - 1);
+            library.splice(index, 1)
+            createCards();
+        })
+    });    
+}
