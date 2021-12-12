@@ -6,17 +6,14 @@ let pagesInput = document.querySelector('#pages')
 let readInput = document.querySelector('#read')
 let library = []
 
-function Book(title, author, pages, read) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title    
+        this.author = author
+        this.pages = pages
+        this.read = read
+    }
 }
-
-function newBook(title, author, pages, read) {
-    library.push(new Book(title, author, pages, read))
-}
-
 
 
 newBookBtn.addEventListener("click", () => {
@@ -34,7 +31,7 @@ closeFormBtn.addEventListener('click', (btn) => {
 
 submitBookBtn = document.querySelector('#submitNewBook')
 submitBookBtn.addEventListener('click', () => {
-    newBook(titleInput.value, authorInput.value, pagesInput.value, readInput.value)
+    library.push(new Book(titleInput.value, authorInput.value, pagesInput.value, readInput.value))
     newBookForm.style.display = 'none'
     titleInput.value = ''
     authorInput.value = ''
@@ -44,9 +41,9 @@ submitBookBtn.addEventListener('click', () => {
     
 });
 
-newBook('Thursday Murder Club', 'Richard Osmond', 385, 'Read')
-newBook('The Hobbit', 'JRR Tolkien', 560, 'Not Read')
-newBook('Sapiens', 'Yuval Noah Harari', 443, 'Not Read')
+library.push(new Book('Thursday Murder Club', 'Richard Osmond', 385, 'Read'))
+library.push(new Book('The Hobbit', 'JRR Tolkien', 560, 'Not Read'))
+library.push(new Book('Sapiens', 'Yuval Noah Harari', 443, 'Not Read'))
 createCards()
 
 
