@@ -26,20 +26,37 @@ closeFormBtn.addEventListener('click', (btn) => {
     titleInput.value = ''
     authorInput.value = ''
     pagesInput.value = ''
-    readInput.value = ''
+    readInput.value = ''        
 })
 
 submitBookBtn = document.querySelector('#submitNewBook')
 submitBookBtn.addEventListener('click', () => {
-    library.push(new Book(titleInput.value, authorInput.value, pagesInput.value, readInput.value))
-    newBookForm.style.display = 'none'
-    titleInput.value = ''
-    authorInput.value = ''
-    pagesInput.value = ''
-    readInput.value = ''
-    createCards()
-    
+    if (checkForm()) {
+        library.push(new Book(titleInput.value, authorInput.value, pagesInput.value, readInput.value))
+        newBookForm.style.display = 'none'
+        titleInput.value = ''
+        authorInput.value = ''
+        pagesInput.value = ''
+        readInput.value = 'Read'
+        createCards()
+    }    
 });
+
+function checkForm() {
+
+    switch (true) {
+        case !document.querySelector('#title').checkValidity():
+            return false
+        case !document.querySelector('#author').checkValidity():
+            return false
+        case !document.querySelector('#pages').checkValidity():
+            return false
+        case !document.querySelector('#read').checkValidity():
+            return false
+        default:
+            return true
+    }
+}
 
 library.push(new Book('Thursday Murder Club', 'Richard Osmond', 385, 'Read'))
 library.push(new Book('The Hobbit', 'JRR Tolkien', 560, 'Not Read'))
