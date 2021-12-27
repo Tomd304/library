@@ -92,6 +92,16 @@ body {
     color: #303C3D;
 }
 
+.full-form select {
+    padding: 5px 20px;
+    border-radius: 5px;
+    border: 1px slategray solid;
+    width: 80%;
+    font-size: 40px;
+    background-color: #B3DEE3;
+    color: #303C3D;
+}
+
 .card .close-btn {
     border: none;
     align-self: flex-end;
